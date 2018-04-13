@@ -1,13 +1,35 @@
 from math import ceil
+import pandas as pd
 
 class Binner(object):
-    def __init__(self):
-        pass
+    def __init__(self, method='equal_pop', num_bins=10, ignore_factor=2):
+        self.method = method
+        self.num_bins = num_bins
+        self.ignore_factor = ignore_factor
+        self.num_bins_cut_points_dict = {}
+        self.column_unique_value_dict = {}
+        self.columns = None
+        self.columns_binned = None
 
-    def equal_pop_bin(self, arr, num_bins=10):
-        num_bins, cut_points = Binner.__find_cut_points(arr, num_bins=num_bins)
-        print(num_bins)
-        print(cut_points)
+    def fit(self, X_data):
+        if self.columns is not None:
+            data = X_data.loc[:, self.columns].copy()
+        else:
+            self.columns = X_data.columns
+            data = X_data.copy()
+
+        self.num_bins_cut_points_dict = {column: Binner.find_cut_points(X_data[column], method=self.method, num_bins=self.num_bins) for column in self.columns}
+        self.column_unique_value_dict = {column: len(X_data[column].value_counts()) for column in self.columns if len(X_data[column].value_counts()) > self.num_bins * self.ignore_factor}
+        self.columns_binned = self.column_unique_value_dict.keys()
+
+    def transform(self, X_data):
+        
+        df_binned = pd.DataFrame({column + '_binned': Binner.equal_pop_binning(X_data[column], *self.num_bins_cut_points_dict[column]) for column in self.column_unique_value_dict})
+
+        return df_binned
+
+    @staticmethod
+    def equal_pop_binning(arr, num_bins, cut_points):
         arr_binned = []
 
         for i, x in enumerate(arr):
@@ -37,7 +59,7 @@ class Binner(object):
 
 
     @staticmethod
-    def __find_cut_points(arr, method='equal_pop', num_bins=10):
+    def find_cut_points(arr, method, num_bins=10):
         
         len_arr = len(arr)
         bin_size = ceil(len_arr / num_bins)
@@ -81,7 +103,7 @@ class Binner(object):
                     prev_pos = pos
                     pos += bin_size
 
-        elif method == 'equal_val':
+        # elif method == 'equal_val':
 
 
 
