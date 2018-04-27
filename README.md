@@ -25,6 +25,10 @@
 ## Preprocessing
 ### Imputing
 
+## Metric
+### Response related metrics
+### Clustering metrics
+
 ## Transformation
 ### Binning
 * Equal pupulation binning
