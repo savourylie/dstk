@@ -29,6 +29,9 @@
 ### Response related metrics
 ### Clustering metrics
 
+* purity
+* accuracy
+
 ## Transformation
 ### Binning
 * Equal pupulation binning
@@ -61,5 +64,6 @@
 * BiGAN
 * infoGAN
 * AAE
+
 ### MISC
 * Entity embeddings
