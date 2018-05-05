@@ -4,3 +4,12 @@
 # Python cache
 __pycache__/
 .pyc
+
+# macOS index
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest cache
+.pytest_cache/
