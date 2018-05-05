@@ -3,7 +3,7 @@
 
 # Python cache
 __pycache__/
-.pyc
+*.pyc
 
 # macOS index
 .DS_Store
