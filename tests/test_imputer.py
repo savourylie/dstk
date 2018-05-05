@@ -1,4 +1,4 @@
-from feature_preprocessing import Imputer
+from dstk.feature_preprocessing import Imputer
 from IPython.display import display
 import pandas as pd
 import numpy as np
