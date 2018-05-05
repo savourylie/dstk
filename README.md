@@ -1,38 +1,71 @@
 # Domains
-## Preprocessing
+## Inspection
+* Postori inspection
+* chi2
+* ANOVA
+* T-test
+* IV
+* KS
+* Correlation family
+* Mutual information
+### Check collinearity
+* Collinearity
+	* Correlation Matrix
+* Multicolinearity
+	* Variance Inflation Factor
+### OOT inspection
+* PSI
+
 ### Data type detector
 * Numeric
 * Numeric-Categorical
 * String-Categorical
 * Time
 
+## Preprocessing
+### Imputing
+
+## Metric
+### Response related metrics
+### Clustering metrics
+
+* purity
+* accuracy
+
+## Transformation
 ### Binning
 * Equal pupulation binning
 * Equal value binning
 * Monotonic binning
+* ChiMerge
 
-## Unsupervised learning
-### Clustering
-#### K-based clustering
-#### Density-based clustering
-#### Hierarchical clustering
-#### Advanced clustering
+### Encoding
+* Dummy
+* WOE
+ 
+## Clustering
+### K-based clustering
+### Density-based clustering
+### Hierarchical clustering
+### Advanced clustering
 * Spectral clustering
 * Subspace clustering
 * Multi-sourced clustering
 * Multi-aspect clustering
 * Multi-task clustering
 
-#### Deep learning-based clustering
+## Deep learning-based clustering
 * AE + K-means
 * AE + Spectral clustering
 * AE + Subspace clustering
 
+## Feature learning
 ### Adversarial representation learning
 * BiGAN
 * infoGAN
 * AAE
 
+<<<<<<< HEAD
 
 # statistical description of raw data
 > Exploring/Summarize the data distribution
@@ -80,3 +113,7 @@
 + Expected value: similar as weighted mean
 + Bar charts:The frequency or proportion for each category plotted as bars
 + Pie charts:The frequency or proportion for each category plotted as wedges in a pie
+=======
+### MISC
+* Entity embeddings
+>>>>>>> 33dbd805f63b3a24e7dc54b14f3599be9c91c4e0
