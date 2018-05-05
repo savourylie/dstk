@@ -4,7 +4,8 @@ import numpy as np
 
 
 class Imputer(BaseEstimator, TransformerMixin):
-    def __init__(self, continuous_features, continuous_method='median', categorical_features=None, categorical_method='most_freq_class',
+    def __init__(self, continuous_features=None, continuous_method='mean', categorical_features=None,
+                 categorical_method='most_freq_class',
                  drop_threshold=0.95):
         """
 
@@ -33,24 +34,32 @@ class Imputer(BaseEstimator, TransformerMixin):
 
         # step 2: update feature columns
         ### LDC TODO: exception handling for where categorical_features is None
-        self.categorical_features = [x for x in self.categorical_features if x not in invalid_features]
-        self.continuous_features = [x for x in self.continuous_features if x not in invalid_features]
+        if self.continuous_features is not None:
+            self.continuous_features = [x for x in self.continuous_features if x not in invalid_features]
+            # step 3: deal with two types of features separately
+            _ = self.fill_continuous(X, self.continuous_features)
 
-        # step 3: deal with two types of features separately
-        _ = self.deal_categorical(X, self.categorical_features)
-        _ = self.deal_continuous(X, self.continuous_features)
+        if self.categorical_features is not None:
+            self.categorical_features = [x for x in self.categorical_features if x not in invalid_features]
+            # step 3: deal with two types of features separately
+            _ = self.fill_categorical(X, self.categorical_features)
+
+        if self.continuous_features is None and self.categorical_features is None:
+            raise ValueError("continuous features and categorical features cannot both be None.")
 
         return self
 
     def transform(self, X):
-        X = self.deal_categorical(X, self.categorical_features)
-        X = self.deal_continuous(X, self.continuous_features)
+        if self.continuous_features is not None:
+            X = self.fill_continuous(X, self.continuous_features)
+        if self.categorical_features is not None:
+            X = self.fill_categorical(X, self.categorical_features)
         return X
 
     def fit_transform(self, X, y=None, **fit_params):
         return self.fit(X).transform(X)
 
-    def deal_continuous(self, X, continuous_features):
+    def fill_continuous(self, X, continuous_features):
         # 针对已经fit过后的transform
         if self.continuous_pad_vals is not None:
             X[continuous_features] = X[continuous_features].fillna(self.continuous_pad_vals)
@@ -59,7 +68,7 @@ class Imputer(BaseEstimator, TransformerMixin):
             if self.continuous_method == "mean":
                 self.continuous_pad_vals = X[continuous_features].mean()
             elif self.continuous_method == "truncated_mean":
-                X_truncated = X[X <= X.quantile(0.95)]
+                X_truncated = X[(X <= X.quantile(0.95)) & (X >= X.quantile(0.05))]
                 self.continuous_pad_vals = X_truncated[continuous_features].mean()
             elif self.continuous_method == "median":
                 self.continuous_pad_vals = X[continuous_features].median()
@@ -71,12 +80,14 @@ class Imputer(BaseEstimator, TransformerMixin):
                 # X[self.continuous_features] = X[self.continuous_features].fillna(0)
         return X
 
-    def deal_categorical(self, X, categorical_features):
+    def fill_categorical(self, X, categorical_features):
         if self.categorical_pad_vals is not None:
             X[categorical_features] = X[categorical_features].fillna(self.categorical_pad_vals)
         else:
             if self.categorical_method == "most_freq_class":
-                self.categorical_pad_vals = [X[c].value_counts().index[0] for c in categorical_features]
+                self.categorical_pad_vals = {c: X[c].value_counts().index[0] for c in categorical_features}
+            elif self.categorical_method == "stringify":
+                self.categorical_pad_vals = "None"
             else:
                 raise ValueError("Imputing method (categorical) is invalid.")
                 # X[self.categorical_features] = X[self.categorical_features].fillna(0)
