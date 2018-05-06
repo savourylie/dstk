@@ -50,6 +50,9 @@ class Imputer(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
+        # delete invalid columns
+        if self.invalid_features is not None:
+            X = X.drop(columns=self.invalid_features)
         if self.continuous_features is not None:
             X = self.fill_continuous(X, self.continuous_features)
         if self.categorical_features is not None:
