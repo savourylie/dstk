@@ -1,6 +1,6 @@
 # Domains
 ## Inspection
-* Postori inspection
+* Posterior inspection
 * chi2
 * ANOVA
 * T-test
@@ -15,6 +15,7 @@
 	* Variance Inflation Factor
 ### OOT inspection
 * PSI
+* Dataframe comparison
 
 ### Data type detector
 * Numeric
