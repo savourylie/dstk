@@ -1,23 +1,23 @@
 # Domains
 ## Inspection
 ### Bi-variant inspection
-* chi2 (2 star)
-* ANOVA (2 star)
-* T-test (2 star)
-* IV (3 star)
-* KS (3 star)
+* chi2 (2 stars)
+* ANOVA (2 stars)
+* T-test (2 stars)
+* IV (3 stars)
+* KS (3 stars)
 
 ### Check collinearity
 * Collinearity
 	* TBD
 * Multicolinearity
-	* Variance Inflation Factor (3 star)
+	* Variance Inflation Factor (3 stars)
 
 ### OOT inspection
-* PSI (3 star)
+* PSI (3 stars)
 * Dataframe comparison (unit tests-covered)
 
-### Data type detector (3 star)
+### Data type detector (3 stars)
 * Numeric
 * Numeric-Categorical
 * String-Categorical
@@ -43,14 +43,14 @@
 
 ## Transformation
 ### Binning
-* Equal pupulation binning (3 star)
-* Equal value binning (3 star)
+* Equal pupulation binning (3 stars)
+* Equal value binning (3 stars)
 * Monotonic binning
 * ChiMerge
 
-### Encoding
-* Dummy
-* WOE
+### Encoding 
+* Dummy (2 stars)
+* WOE (2 stars)
 * Tree leaves encoding
  
 ## Clustering
@@ -74,8 +74,6 @@
 * BiGAN
 * infoGAN
 * AAE
-
-<<<<<<< HEAD
 
 # statistical description of raw data
 > Exploring/Summarize the data distribution
@@ -126,4 +124,4 @@
 =======
 ### MISC
 * Entity embeddings
->>>>>>> 33dbd805f63b3a24e7dc54b14f3599be9c91c4e0
+
