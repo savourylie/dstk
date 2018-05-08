@@ -1,47 +1,57 @@
 # Domains
 ## Inspection
-* Postori inspection
-* chi2
-* ANOVA
-* T-test
-* IV
-* KS
-* Correlation family
-* Mutual information
+### Bi-variant inspection
+* chi2 (2 stars)
+* ANOVA (2 stars)
+* T-test (2 stars)
+* IV (3 stars)
+* KS (3 stars)
+
 ### Check collinearity
 * Collinearity
-	* Correlation Matrix
+	* TBD
 * Multicolinearity
-	* Variance Inflation Factor
-### OOT inspection
-* PSI
+	* Variance Inflation Factor (3 stars)
 
-### Data type detector
+### OOT inspection
+* PSI (3 stars)
+* Dataframe comparison (unit tests-covered)
+
+### Data type detector (3 stars)
 * Numeric
 * Numeric-Categorical
 * String-Categorical
 * Time
 
 ## Preprocessing
-### Imputing
+### Imputing (unit tests-covered)
+* Continous
+	* mean
+	* truncated mean
+	* median
+	* bin-nan
+* Categorical
+	* most frequent class
+	* stringify
 
 ## Metric
 ### Response related metrics
 ### Clustering metrics
 
-* purity
-* accuracy
+* Purity (need unit tests)
+* Accuracy (need unit tests)
 
 ## Transformation
 ### Binning
-* Equal pupulation binning
-* Equal value binning
+* Equal pupulation binning (3 stars)
+* Equal value binning (3 stars)
 * Monotonic binning
 * ChiMerge
 
-### Encoding
-* Dummy
-* WOE
+### Encoding 
+* Dummy (2 stars)
+* WOE (2 stars)
+* Tree leaves encoding
  
 ## Clustering
 ### K-based clustering
@@ -64,8 +74,6 @@
 * BiGAN
 * infoGAN
 * AAE
-
-<<<<<<< HEAD
 
 # statistical description of raw data
 > Exploring/Summarize the data distribution
@@ -116,4 +124,4 @@
 =======
 ### MISC
 * Entity embeddings
->>>>>>> 33dbd805f63b3a24e7dc54b14f3599be9c91c4e0
+

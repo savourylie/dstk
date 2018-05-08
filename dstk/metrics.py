@@ -36,5 +36,7 @@ def cluster_acc(y_true, cluster):
 
     return 1 - (sum(cluster_class_acc_dict.values()) / len(compare_df))
 
-def purity(label, cluster):
-    pass
+def purity(y_true, cluster):
+    compare_df = pd.DataFrame({'y_true': y_true, 'cluster': cluster})
+
+    return sum([sorted(list(compare_df.loc[compare_df['cluster'] == c, 'y_true'].value_counts().items()), key=lambda x: x[1], reverse=True)[0][1] for c in compare_df['cluster'].unique()]) / len(y_true)
