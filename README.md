@@ -1,48 +1,57 @@
 # Domains
 ## Inspection
-* Posterior inspection
-* chi2
-* ANOVA
-* T-test
-* IV
-* KS
-* Correlation family
-* Mutual information
+### Bi-variant inspection
+* chi2 (2 star)
+* ANOVA (2 star)
+* T-test (2 star)
+* IV (3 star)
+* KS (3 star)
+
 ### Check collinearity
 * Collinearity
-	* Correlation Matrix
+	* TBD
 * Multicolinearity
-	* Variance Inflation Factor
-### OOT inspection
-* PSI
-* Dataframe comparison
+	* Variance Inflation Factor (3 star)
 
-### Data type detector
+### OOT inspection
+* PSI (3 star)
+* Dataframe comparison (unit tests-covered)
+
+### Data type detector (3 star)
 * Numeric
 * Numeric-Categorical
 * String-Categorical
 * Time
 
 ## Preprocessing
-### Imputing
+### Imputing (unit tests-covered)
+* Continous
+	* mean
+	* truncated mean
+	* median
+	* bin-nan
+* Categorical
+	* most frequent class
+	* stringify
 
 ## Metric
 ### Response related metrics
 ### Clustering metrics
 
-* purity
-* accuracy
+* Purity (need unit tests)
+* Accuracy (need unit tests)
 
 ## Transformation
 ### Binning
-* Equal pupulation binning
-* Equal value binning
+* Equal pupulation binning (3 star)
+* Equal value binning (3 star)
 * Monotonic binning
 * ChiMerge
 
 ### Encoding
 * Dummy
 * WOE
+* Tree leaves encoding
  
 ## Clustering
 ### K-based clustering
