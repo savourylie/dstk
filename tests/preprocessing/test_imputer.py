@@ -1,5 +1,4 @@
 from dstk.preprocessing import Imputer
-# from IPython.display import display
 import pandas as pd
 import numpy as np
 
@@ -122,8 +121,8 @@ def test_cont_cat_imputer():
 
 #     assert np.isclose(df.values, df_result.values)
 
-if __name__ == '__main__':
-    test_mean_imputer()
-    test_categorical_imputer()
-    test_categorical_str_imputer()
-    # test_cont_cat_imputer()
+# if __name__ == '__main__':
+#     test_mean_imputer()
+#     test_categorical_imputer()
+#     test_categorical_str_imputer()
+#     # test_cont_cat_imputer()
