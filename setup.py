@@ -10,5 +10,6 @@ setup(
   url = 'https://github.com/savourylie/dstk.git', # use the URL to the github repo
   download_url = 'https://github.com/savourylie/dstk/archive/0.1.tar.gz', # I'll explain this in a second
   keywords = ['testing', 'logging', 'example'], # arbitrary keywords
-  classifiers = [],
+  install_requires = ['pandas==0.22.0'],
+  classifiers = []
 )
