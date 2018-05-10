@@ -39,6 +39,9 @@
 	* most frequent class
 	* stringify
 
+#### MISC
+* onehot_split
+
 ### Metric
 #### Response related metrics
 #### Clustering metrics
@@ -57,9 +60,6 @@
 * Dummy (2 stars)
 * WOE (2 stars)
 * Tree leaves encoding
- 
-### Model selection
-#### onehot_split
 
 ### Clustering
 #### K-based clustering
