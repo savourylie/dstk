@@ -1,4 +1,4 @@
-# DSTK, Data Science Took Kit
+# DSTK, Data Science Toolkit
 
 ## Dependencies
 * pandas == 0.22.0
