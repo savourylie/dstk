@@ -2,6 +2,23 @@ from sklearn.base import BaseEstimator, TransformerMixin
 import pandas as pd
 import numpy as np
 
+def onehot_split(df):
+    """
+    This method splits the input dataframe into two dataframes. 
+    One with continuous features, and the other with one-hot features.
+    CAUTION: This method only works on pure numeric dataframes.
+    """
+    columns = df.columns
+
+    for col in columns:
+        if df[col].dtype == 'O':
+            raise ValueError("The dataframe contains strings.")
+
+    cat_cols = [col for col in columns if set(map(float, [x for x in df[col].unique().tolist() if not np.isnan(x)])) == set([1.0, 0.0])]
+    cont_cols = [col for col in columns if col not in cat_cols]
+
+    return df[cont_cols], df[cat_cols]
+
 
 class Imputer(BaseEstimator, TransformerMixin):
     def __init__(self, continuous_features=None, continuous_method='mean', categorical_features=None,
