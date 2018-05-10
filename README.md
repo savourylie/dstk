@@ -1,30 +1,35 @@
-# Domains
-## Inspection
-### Bi-variant inspection
+# DSTK, Data Science Took Kit
+
+## Dependencies
+* pandas == 0.22.0
+
+## Package structure
+### Inspection
+#### Bi-variant inspection
 * chi2 (2 stars)
 * ANOVA (2 stars)
 * T-test (2 stars)
 * IV (3 stars)
 * KS (3 stars)
 
-### Check collinearity
+#### Check collinearity
 * Collinearity
 	* TBD
 * Multicolinearity
 	* Variance Inflation Factor (3 stars)
 
-### OOT inspection
+#### OOT inspection
 * PSI (3 stars)
 * Dataframe comparison (unit tests-covered)
 
-### Data type detector (3 stars)
+#### Data type detector (3 stars)
 * Numeric
 * Numeric-Categorical
 * String-Categorical
 * Time
 
-## Preprocessing
-### Imputing (unit tests-covered)
+### Preprocessing
+#### Imputing (unit tests-covered)
 * Continous
 	* mean
 	* truncated mean
@@ -34,43 +39,46 @@
 	* most frequent class
 	* stringify
 
-## Metric
-### Response related metrics
-### Clustering metrics
+### Metric
+#### Response related metrics
+#### Clustering metrics
 
 * Purity (need unit tests)
 * Accuracy (need unit tests)
 
-## Transformation
-### Binning
+### Transformation
+#### Binning
 * Equal pupulation binning (3 stars)
 * Equal value binning (3 stars)
 * Monotonic binning
 * ChiMerge
 
-### Encoding 
+#### Encoding 
 * Dummy (2 stars)
 * WOE (2 stars)
 * Tree leaves encoding
  
-## Clustering
-### K-based clustering
-### Density-based clustering
-### Hierarchical clustering
-### Advanced clustering
+### Model selection
+#### onehot_split
+
+### Clustering
+#### K-based clustering
+#### Density-based clustering
+#### Hierarchical clustering
+#### Advanced clustering
 * Spectral clustering
 * Subspace clustering
 * Multi-sourced clustering
 * Multi-aspect clustering
 * Multi-task clustering
 
-## Deep learning-based clustering
+### Deep learning-based clustering
 * AE + K-means
 * AE + Spectral clustering
 * AE + Subspace clustering
 
-## Feature learning
-### Adversarial representation learning
+### Feature learning
+#### Adversarial representation learning
 * BiGAN
 * infoGAN
 * AAE
