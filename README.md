@@ -28,6 +28,16 @@
 * String-Categorical
 * Time
 
+#### Outlier detection
+##### Univariate
+* Tukey's method
+* z-test
+
+##### Multivariate
+* Residual threshold method
+* Local outlier factor
+* HiCS
+
 ### Preprocessing
 #### Imputing (unit tests-covered)
 * Continous
