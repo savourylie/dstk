@@ -13,7 +13,7 @@ class FeatureBinning(BaseEstimator, TransformerMixin):
         self.feature_list = feature_list
         self.feature_bins_dict = None
         self.bin_nums = bin_nums
-        self.bin_labels=bin_labels
+        self.bin_labels = bin_labels
         # self.is_set_feature_names = False
         # self.feature_names = list()
 
@@ -33,9 +33,9 @@ class FeatureBinning(BaseEstimator, TransformerMixin):
             for feature in list(self.feature_bins_dict.keys()):
                 feature_bins = self.feature_bins_dict[feature]
                 if self.bin_labels is not None:
-                    labels=self.bin_labels
+                    labels = self.bin_labels
                 else:
-                    labels=[feature+str(i) for i in range(len(feature_bins)-1)]
+                    labels = [feature+str(i) for i in range(len(feature_bins) - 1)]
                 X[feature] = pd.cut(X[feature], feature_bins, include_lowest=True, labels=labels)
         # if self.is_set_feature_names is True:
         #     self.feature_names = list(X.columns)
